@@ -11,8 +11,19 @@
       <h5 class="card-title">{{tarea.titulo}}</h5>
       <p class="card-text">{{tarea.descripcion}}</p>
     </div>
+    <form action="{% url 'eliminar_tareas' tarea.id %} " method="POST">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">Eliminar</button>
+    </form>
   </div>
 </div>
 <br />
-
+{%empty %}
+<div class="miCard">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">No se han agregado tareas</h5>
+    </div>
+  </div>
+</div>
 {% endfor %} {% endblock cuerpo %}
