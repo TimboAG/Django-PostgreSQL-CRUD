@@ -20,6 +20,7 @@ from tareas import views
 
 urlpatterns = [
     path('', views.lista_tareas, name= "vista_tareas"),
-    path('crear', views.crear_tarea, name="crear_tarea"),
+    path('crear/', views.crear_tarea, name="crear_tarea"),
+    path('ver/', views.ver_tareas, name="ver_tareas"),
     path('admin/', admin.site.urls),
 ]

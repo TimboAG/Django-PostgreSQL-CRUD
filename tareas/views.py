@@ -10,3 +10,7 @@ def crear_tarea(request):
     miTarea = tareas(titulo=request.POST['titulo'], descripcion=request.POST['descripcion'])
     miTarea.save()
     return redirect ("/")
+
+def ver_tareas(request):
+    misTareas=tareas.objects.all()
+    return render(request, "lista_tareas.html", {"misTareas": misTareas})
