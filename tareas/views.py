@@ -24,3 +24,16 @@ def eliminar_tareas(request, id):
     misTareas = tareas.objects.get(id=id)
     misTareas.delete()
     return redirect("/ver")
+
+
+def modificar_tarea(request, id):
+    misTareas = tareas.objects.get(id=id)
+    return render(request, "modificar_tarea.html", {"misTareas": misTareas})
+
+
+def guardar_modificacion_tarea(request, id):
+    misTareas = tareas.objects.get(id=id)
+    misTareas.titulo = request.POST['titulo']
+    misTareas.descripcion = request.POST['descripcion']
+    misTareas.save()
+    return redirect("/ver")

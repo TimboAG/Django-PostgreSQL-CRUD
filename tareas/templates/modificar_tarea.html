@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% block cuerpo %}
+<form
+  class="formTareas"
+  method="POST"
+  action="{% url 'guardar_modificacion_tarea' misTareas.id %}"
+>
+  {% csrf_token %}
+  <h1>Tareas</h1>
+  <br />
+  <div class="mb-3">
+    <label for="titulo" class="form-label">Titulo</label>
+    <input
+      type="text"
+      class="form-control"
+      id="titulo"
+      name="titulo"
+      value="{{misTareas.titulo}}"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="descripcion" class="form-label">Descripcion</label>
+    <textarea
+      type="text"
+      class="form-control"
+      id="descripcion"
+      name="descripcion"
+      value="{{misTareas.descripcion}}"
+    >
+    {{misTareas.descripcion}}
+    </textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
+<form action="{% url 'vista_tareas' %} " method="POST">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-primary">volver</button>
+</form>
+{% endblock cuerpo %}

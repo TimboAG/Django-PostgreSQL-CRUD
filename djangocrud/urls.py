@@ -23,5 +23,8 @@ urlpatterns = [
     path('crear/', views.crear_tarea, name="crear_tarea"),
     path('ver/', views.ver_tareas, name="ver_tareas"),
     path('eliminar/<int:id>', views.eliminar_tareas, name="eliminar_tareas"),
+    path('modificar/<int:id>/', views.modificar_tarea, name='modificar_tarea'),
+    path('guardar-modificacion/<int:id>/',
+         views.guardar_modificacion_tarea, name='guardar_modificacion_tarea'),
     path('admin/', admin.site.urls),
 ]

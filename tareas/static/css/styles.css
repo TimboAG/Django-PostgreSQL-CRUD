@@ -21,3 +21,13 @@ body{
     text-align: center;   
     margin-top: 5%; 
 }
+
+.acciones form {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.botones {
+display: flex;
+gap: 10px;
+}
